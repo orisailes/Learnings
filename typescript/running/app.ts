@@ -1,16 +1,17 @@
+let favoriteActivites: string[]
+favoriteActivites = ['test', 'sleep']
 
-function add(n1:number,n2:number,toPrint:boolean,pharse:string){
-    const result = n1+n2
-    if(toPrint){
-        console.log(pharse + result);
-    }else{
-        return result
-    }
+
+const person = {
+    name: "ori",
+    age: 24,
+    hobbies: favoriteActivites
 }
 
-const number1= 5
-const number2 = 2.8
-const defienPrint = true
-const hitLine = "My super answer is: "
-add(number1,number2,defienPrint,hitLine)
+console.log(person);
 
+
+for(const hobby of person.hobbies){
+    console.log(hobby.toUpperCase());
+    
+}
