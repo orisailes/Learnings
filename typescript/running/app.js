@@ -1,11 +1,13 @@
-function sum(n1, n2) {
-    return n1 + n2;
+var userName;
+var userInput;
+userInput = false;
+// userInput = 123
+if (typeof userInput === 'string') {
+    userName = userInput;
 }
-function printer(num) {
-    console.log("Answer: " + num);
+else {
+    generateError('error occurs', 400);
 }
-var sumHandler;
-sumHandler = sum;
-var printerHandler;
-printerHandler = printer;
-printerHandler(sumHandler(43242, 156123));
+function generateError(message, code) {
+    throw { message: message, code: code };
+}
