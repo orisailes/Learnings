@@ -1,17 +1,9 @@
-let favoriteActivites: string[]
-favoriteActivites = ['test', 'sleep']
+let userInput:unknown
+let userName:string
 
-
-const person = {
-    name: "ori",
-    age: 24,
-    hobbies: favoriteActivites
+userInput = 123
+userInput = '123'
+if(typeof userInput=== 'string'){
+    userName = userInput
 }
-
-console.log(person);
-
-
-for(const hobby of person.hobbies){
-    console.log(hobby.toUpperCase());
-    
-}
+// userName = userInput
