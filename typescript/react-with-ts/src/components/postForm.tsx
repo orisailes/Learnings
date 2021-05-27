@@ -27,7 +27,6 @@ const PostForm: React.FC<IProps> = ({ posts, setPosts }) => {
     }
 
     const makePost = (): StateInterface["post"] => {
-
         const post = {
             author: input.author,
             location: input.location,
@@ -40,10 +39,13 @@ const PostForm: React.FC<IProps> = ({ posts, setPosts }) => {
 
     const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        const post = makePost()
-        const helper = [...posts]
-        helper.push(post)
-        setPosts(helper)
+        const isValid = Object.values(input).every((element) => element.length > 0)
+        if (isValid) {
+            const post = makePost()
+            const helper = [...posts]
+            helper.push(post)
+            setPosts(helper)
+        }
     }
 
     return (
@@ -51,14 +53,19 @@ const PostForm: React.FC<IProps> = ({ posts, setPosts }) => {
             <form onSubmit={(e) => submitForm(e)}>
                 <label htmlFor="author-input">Author: </label>
                 <input name="author" onChange={(e) => inputChange(e)} type="text" value={input.author} id="author-input" />
+
                 <label htmlFor="location-input">Location: </label>
                 <input name="location" onChange={(e) => inputChange(e)} type="text" value={input.location} id="location-input" />
+
                 <label htmlFor="age-input">Age: </label>
                 <input name="age" onChange={(e) => inputChange(e)} type="text" value={input.age} id="age-input" />
+
                 <label htmlFor="title-input">Title: </label>
                 <input name="title" onChange={(e) => inputChange(e)} type="text" value={input.title} id="title-input" />
+
                 <label htmlFor="post-textarea">Post: </label>
                 <textarea name="post" id="post-textarea" value={input.post} onChange={(e) => inputChange(e)} cols={50} rows={5}></textarea>
+
                 <input type="submit" value="Submit" />
             </form>
         </div>

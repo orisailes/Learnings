@@ -22,6 +22,7 @@ form,
 .posts-displayer {
     flex-direction: row;
     margin-bottom: 4rem;
+    overflow:auto;
 }
 
 .individual-post{
