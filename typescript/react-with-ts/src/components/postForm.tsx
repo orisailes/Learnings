@@ -2,8 +2,12 @@ import React, { useState } from 'react'
 import { StateInterface } from '../App'
 
 
+interface IProps {
+    posts: StateInterface['post'][]
+    setPosts: React.Dispatch<React.SetStateAction<StateInterface["post"][]>>
+}
 
-const PostForm = () => {
+const PostForm: React.FC<IProps> = ({ posts, setPosts }) => {
 
     const [input, setInput] = useState<StateInterface["inputs"]>({
         author: '',
@@ -14,14 +18,16 @@ const PostForm = () => {
     })
 
     const inputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+
         const newValue = e.target.value
         const helper = { ...input }
-        const key = e.target.name as keyof typeof input 
+        const key = e.target.name as keyof typeof input
         helper[key] = newValue
         setInput(helper)
     }
 
-    const addPost = (): StateInterface["post"] => {
+    const makePost = (): StateInterface["post"] => {
+
         const post = {
             author: input.author,
             location: input.location,
@@ -29,15 +35,20 @@ const PostForm = () => {
             title: input.title,
             post: input.post
         }
+        return post
+    }
 
-        return (
-            post
-        )
+    const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        const post = makePost()
+        const helper = [...posts]
+        helper.push(post)
+        setPosts(helper)
     }
 
     return (
         <div>
-            <form>
+            <form onSubmit={(e) => submitForm(e)}>
                 <label htmlFor="author-input">Author: </label>
                 <input name="author" onChange={(e) => inputChange(e)} type="text" value={input.author} id="author-input" />
                 <label htmlFor="location-input">Location: </label>

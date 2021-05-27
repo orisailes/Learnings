@@ -11,7 +11,7 @@ class Car{
     }
 
     makeNoise():string{
-        return `${this.name} vrooom vroooooom`
+        return `${this.name} makes vrooom vroooooom`
     }
 
     getYear():number{

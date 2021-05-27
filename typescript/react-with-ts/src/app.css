@@ -10,7 +10,8 @@
 
 form,
 .posts-page,
-.posts-displayer {
+.posts-displayer,
+.individual-post {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,4 +22,16 @@ form,
 .posts-displayer {
     flex-direction: row;
     margin-bottom: 4rem;
+}
+
+.individual-post{
+    font-size: small;
+    border: 1px solid black;
+}
+.individual-post p{
+    margin: 0.5rem;
+}
+
+.individual-post .post-heading{
+    display: flex;
 }
