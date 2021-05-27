@@ -58,7 +58,7 @@ const PostForm: React.FC<IProps> = ({ posts, setPosts }) => {
                 <input name="location" onChange={(e) => inputChange(e)} type="text" value={input.location} id="location-input" />
 
                 <label htmlFor="age-input">Age: </label>
-                <input name="age" onChange={(e) => inputChange(e)} type="text" value={input.age} id="age-input" />
+                <input name="age" onChange={(e) => inputChange(e)} type="number" value={input.age} id="age-input" />
 
                 <label htmlFor="title-input">Title: </label>
                 <input name="title" onChange={(e) => inputChange(e)} type="text" value={input.title} id="title-input" />

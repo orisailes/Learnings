@@ -3,11 +3,6 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.posts-page {
-    margin: 2rem;
-
-}
-
 form,
 .posts-page,
 .posts-displayer,
@@ -20,6 +15,7 @@ form,
 
 
 .posts-displayer {
+    max-width: 90vw;
     flex-direction: row;
     margin-bottom: 4rem;
     overflow:auto;
