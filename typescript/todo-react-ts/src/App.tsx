@@ -18,7 +18,14 @@ const App: React.FC = () => {
 
   const addTask = (): void => {
     const newTask = { task, deadline }
-    setTodo([...todo, newTask])
+    const isDuplicate = todo.some(note => note.task === newTask.task)
+    !isDuplicate && setTodo([...todo, newTask])
+  }
+
+  const removeTask = (taskName: string): void => {
+    let helper = [...todo]
+    helper = helper.filter((note => note.task !== taskName))
+    setTodo(helper)
   }
 
   return (
@@ -32,7 +39,7 @@ const App: React.FC = () => {
       </div>
       <div className="todo-list">
 
-        {todo.map((note:IState['note'],key:number) => {return <TodoList note={note}/>})}
+        {todo.map((note: IState['note'], key: number) => { return <TodoList removeTask={removeTask} note={note} /> })}
 
       </div>
     </div>

@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
-    overflow:hidden ;
+    overflow: hidden;
 }
 
 .header {
@@ -63,12 +63,12 @@
     flex-direction: column;
 }
 
-.individual-task{
+.individual-task {
     margin: 0.3rem;
     display: flex;
 }
 
-.individual-task p{
+.individual-task p {
     background-color: tan;
     margin-right: 0.2rem;
     width: 30vw;
@@ -78,7 +78,7 @@
     align-items: center;
 }
 
-.individual-task button{
+.individual-task button {
     background-color: teal;
     border: none;
     padding: 0.3rem 1.2rem;
