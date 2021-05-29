@@ -6,6 +6,14 @@ test('fibo test', () => {
     expect(funcResult)
         .toBe(result)
 })
+
+test('fibo test', () => {
+    const funcResult = fibbonachi(1)
+    const result = 1
+    expect(funcResult)
+        .toBe(result)
+})
+
 test('fibo test', () => {
     const funcResult = fibbonachi(1)
     const result = 1

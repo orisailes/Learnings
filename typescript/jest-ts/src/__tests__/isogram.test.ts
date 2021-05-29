@@ -6,21 +6,24 @@ test('isogram test', () => {
     expect(funcResult)
         .toBe(result)
 })
+
 test('isogram test', () => {
     const funcResult = isogram(4231)
     const result = false
     expect(funcResult)
         .toBe(result)
 })
+
 test('isogram test', () => {
     const funcResult = isogram(true)
     const result = false
     expect(funcResult)
         .toBe(result)
 })
+
 test('isogram test', () => {
     const funcResult = isogram('moOse')
     const result = false // -- ignore letter case
-    expect(funcResult) 
+    expect(funcResult)
         .toBe(result)
 })
