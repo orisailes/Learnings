@@ -6,7 +6,7 @@
 // isIsogram("aba") == false
 // isIsogram("moOse") == false // -- ignore letter case
 
-export default function isogram(string) {
+export default function isogram(string):boolean {
     if(typeof string !== 'string') return false
     string = string.toLowerCase().split('');
     let helper = string;
