@@ -1,22 +1,44 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectSong } from '../actions'
 import { State } from '../interfaces'
 
 
 const SongList: React.FC = () => {
 
-    const songsArray = useSelector((state:State) => state.songs)
+    const songs = useSelector((state: State) => state.songs)
+    const selectedSong = useSelector((state: State) => state.selectedSong)
+    const dispatch = useDispatch()
+
+    const chooseSong = (song: object) => {
+        console.log(songs);
+        dispatch(selectSong(song))
+    }
+
     return (
-        <div>
-            Song list
-        </div>
+        <>
+            <div className="song-container">
+                {songs.map((song) => {
+                    return (
+                        <div className="song-item">
+                            <div className="song-content">
+                                <span>{song.title}</span>
+                            </div>
+                            <div className="song-btn" key={song.title}>
+                                <button onClick={() => chooseSong(song)}>Select</button>
+                            </div>
+                        </div>
+                    )
+                })}
+            </div>
+            <div>
+                <p>{selectedSong ?  JSON.stringify(selectedSong)  : "No selected song yet"}</p>
+            </div>
+        </>
     )
 }
 
 export default SongList
-
-
-
 
 
 

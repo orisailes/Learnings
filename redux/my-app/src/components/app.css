@@ -1,0 +1,15 @@
+.song-container {
+    width: 50vw;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    color: darkcyan;
+}
+
+.song-item {
+    display: flex;
+    margin: 1rem;
+}
+
+.song-item span {
+    margin-right: 1rem;
+}
