@@ -1,4 +1,4 @@
-import IGlobal from '../interfaces'
+import { Actions, IGlobal } from '../interfaces'
 import { combineReducers } from 'redux'
 
 const songReducer = () => {
@@ -10,14 +10,15 @@ const songReducer = () => {
     ]
 }
 
-const selectedfSongReducer = (selectedSong = null, action: IGlobal['action']) => {
-    if (action.type === 'SONG_SELECTED') {
+const selectedSongReducer = (selectedSong = null, action: IGlobal['action']) => {
+    if (action.type === Actions.songSelect) {
         return action.payload
     }
     return selectedSong
 }
 
 export default combineReducers({
-    songReducer,
-    selectedfSongReducer
+    songs: songReducer,
+    selectedSong: selectedSongReducer
 })
+

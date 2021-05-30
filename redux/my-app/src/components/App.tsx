@@ -1,11 +1,10 @@
 import React from 'react';
-import {selectSong} from '../actions'
+import SongList from './SongList'
 
-
-function App() {
+const App:React.FC = () => {
   return (
     <div className="App">
-      app
+      <SongList/>
      </div>
   );
 }
