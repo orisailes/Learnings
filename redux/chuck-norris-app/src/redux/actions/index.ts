@@ -5,7 +5,7 @@ export const addJoke = (joke:string): ActionTypes => {
 
     return {
         type: ADD_JOKE,
-        payload: 'joke'
+        payload: joke
     }
 
 }

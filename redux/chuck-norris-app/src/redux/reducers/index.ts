@@ -9,13 +9,9 @@ const jokeReducer = (state: Store['joke'] = '', action: ActionTypes) => {
 
     switch (action.type) {
         case ADD_JOKE:
-            return {
-                joke: action.payload
-            }
+            return action.payload
         case REMOVE_JOKE:
-            return {
-                joke: action.payload
-            }
+            return action.payload
         default:
             return state
     }

@@ -3,16 +3,22 @@ import './App.css';
 import { useSelector, useDispatch } from 'react-redux'
 import { Store } from './interfaces'
 import { addJoke, removeJoke } from './redux/actions'
-
+import axios from 'axios';
 
 const App: React.FC = () => {
 
   const joke = useSelector((state: Store) => state.joke)
   const dispatch = useDispatch()
 
-  const getJoke = () => {
-    const joke = 'test'
-    //"https://api.chucknorris.io/jokes/random"
+  const getJoke = async () => {
+    let data
+    let joke
+    try {
+      data = await axios.get("https://api.chucknorris.io/jokes/random")
+      joke = data.data.value
+    } catch (error) {
+      console.log(error);
+    }
     dispatch(addJoke(joke))
   }
 
