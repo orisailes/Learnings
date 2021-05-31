@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Dispatch } from 'react';
 import './App.css';
 import { useSelector, useDispatch } from 'react-redux'
-import { Store } from './interfaces'
+import { ActionTypes, Store } from './interfaces'
 import { addJoke, removeJoke } from './redux/actions'
 // import axios from 'axios';
 
@@ -10,7 +10,7 @@ const App: React.FC = () => {
   const joke = useSelector((state: Store) => state.joke)
   const dispatch = useDispatch()
 
-  const getJoke = () => {
+  const getJoke = ():void => {
   //   let data
   //   let joke
   //   try {
@@ -23,7 +23,7 @@ const App: React.FC = () => {
   // }
     dispatch(addJoke()) //! using dispatch to make api call with thunk middleware
   }
-  const deleteJoke = () => {
+  const deleteJoke = ():void => {
     dispatch(removeJoke())
   }
 
