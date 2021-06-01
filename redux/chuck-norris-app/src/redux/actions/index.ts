@@ -6,6 +6,7 @@ import { Store } from '../../interfaces'
 //* get joke as params or fetch joke here?
 
 //! the action funtion cant be async! only the rerturened can be async , these will lead to error
+
 export const addJoke = () => async (dispatch: Dispatch<ActionTypes>) => {
     let data
     let joke: Store['joke']
@@ -17,7 +18,6 @@ export const addJoke = () => async (dispatch: Dispatch<ActionTypes>) => {
         console.log(error);
     }
 }
-
 
 export const removeJoke = (): ActionTypes => {
 

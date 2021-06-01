@@ -8,7 +8,7 @@ import { addJoke, removeJoke } from './redux/actions'
 const App: React.FC = () => {
 
   const joke = useSelector((state: Store) => state.joke)
-  const dispatch = useDispatch()
+  const dispatch = useDispatch() // type?
 
   const getJoke = ():void => {
   //   let data
