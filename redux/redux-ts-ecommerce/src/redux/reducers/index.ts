@@ -1,20 +1,29 @@
 import { combineReducers } from 'redux'
-import { GET_PRODUCTS,actionType } from '../../interfaces'
+import { GET_PRODUCTS, actionType, SET_CART_ITEM } from '../../interfaces'
 // //! Add types
 
 
-const productsReducer = (state = [], action:actionType) => {
+const productsReducer = (state = [], action: actionType) => {
+
     switch (action.type) {
 
         case GET_PRODUCTS:
-            return [...state, action.payload]
-
+            return action.payload
         default:
             return state
     }
 }
 
+const cartReducer = (state = [], action: actionType) => {
+    switch (action.type) {
+        case SET_CART_ITEM:
+            return [...state, action.payload]
+        default:
+            return state
+    }
+}
 
 export default combineReducers({
-    products: productsReducer
+    products: productsReducer,
+    cart: cartReducer
 })

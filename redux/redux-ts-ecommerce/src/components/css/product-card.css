@@ -1,0 +1,21 @@
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    height: 60vh;
+    overflow-y: auto;
+}
+
+.product-card img {
+    height: 15vh;
+}
+
+.read-more-btn{
+    background: none;
+    border: none;
+    outline: none;
+    color: blue;
+    cursor: pointer;
+}

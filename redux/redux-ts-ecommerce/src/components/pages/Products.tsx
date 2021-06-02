@@ -1,26 +1,47 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Product } from '../../interfaces'
+import { addItemToCart, getInitialProducts } from '../../redux/actions'
 import '../css/products.css'
+import { IState, Product } from '../../interfaces'
+import ProductsCard from '../utils/ProductsCard'
 
 
 const Products: React.FC = () => {
 
     const products = useSelector((state: any) => state.products)
     const dispatch = useDispatch()
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState<boolean>(products.length ? false : true)
+    const cart = useSelector((state: IState) => state.cart)
     useEffect((): void => {
         const fetchData = async () => {
-            dispatch(getInitialProducts())
+            await dispatch(getInitialProducts())
+            setIsLoading(false)
         }
-        fetchData()
-        setIsLoading(false)
+        if (!products.length) fetchData()
+
     }, [])
+
+    const addToCart = (product: Product): void => {
+        const isDuplicate = cart.some((item: Product) => item.title === product.title)
+        if(!isDuplicate) dispatch(addItemToCart(product))
+    }
 
     return (
         <div className='products-page'>
             {isLoading && <h3>Loading...</h3>}
-            products: {JSON.stringify(products)}
+            {
+                products.length > 0 &&
+
+                <div className='products-card-container'>
+                    {
+                        products.map(
+                            (product: Product) => <ProductsCard product={product} addToCart={addToCart} />
+                        )
+                    }
+
+                </div>
+
+            }
         </div>
     )
 }
