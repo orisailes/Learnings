@@ -1,0 +1,4 @@
+.cart {
+    height: calc(100vh - 10vh);
+    background-color: whitesmoke;
+}

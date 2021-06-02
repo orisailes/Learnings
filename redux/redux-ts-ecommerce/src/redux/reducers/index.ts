@@ -1,35 +1,20 @@
-import {combineReducers} from 'redux'
-
+import { combineReducers } from 'redux'
+import { GET_PRODUCTS,actionType } from '../../interfaces'
 // //! Add types
 
-// const initialState = {
 
-// }
+const productsReducer = (state = [], action:actionType) => {
+    switch (action.type) {
 
-// const myReducer =  (state = initialState, { type, payload }) => {
-//     switch (type) {
+        case GET_PRODUCTS:
+            return [...state, action.payload]
 
-//     case typeName:
-//         return { ...state, ...payload }
-
-//     default:
-//         return state
-//     }
-// }
-// const mySecondReducer =  (state = initialState, { type, payload }) => {
-//     switch (type) {
-
-//     case typeName:
-//         return { ...state, ...payload }
-
-//     default:
-//         return state
-//     }
-// }
+        default:
+            return state
+    }
+}
 
 
 export default combineReducers({
-    // firstState:myReducer,
-    // secondState:mySecondReducer
-    temp:function(){return true}
+    products: productsReducer
 })
