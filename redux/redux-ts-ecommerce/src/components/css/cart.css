@@ -1,4 +1,7 @@
-.cart {
-    height: calc(100vh - 10vh);
+.cart-container {
     background-color: whitesmoke;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
 }

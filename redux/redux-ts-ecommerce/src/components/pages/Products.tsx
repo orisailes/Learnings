@@ -6,7 +6,7 @@ import { IState, Product } from '../../interfaces'
 import ProductsCard from '../utils/ProductsCard'
 
 
-const Products: React.FC = () => {
+const Products: React.FC = ():JSX.Element => {
 
     const products = useSelector((state: any) => state.products)
     const dispatch = useDispatch()
@@ -26,6 +26,8 @@ const Products: React.FC = () => {
         if(!isDuplicate) dispatch(addItemToCart(product))
     }
 
+ 
+
     return (
         <div className='products-page'>
             {isLoading && <h3>Loading...</h3>}
@@ -35,7 +37,7 @@ const Products: React.FC = () => {
                 <div className='products-card-container'>
                     {
                         products.map(
-                            (product: Product) => <ProductsCard product={product} addToCart={addToCart} />
+                            (product: Product) => <ProductsCard product={product} key={product.id} addToCart={addToCart} />
                         )
                     }
 

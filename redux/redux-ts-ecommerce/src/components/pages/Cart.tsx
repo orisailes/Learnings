@@ -1,6 +1,7 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { IState, Product } from '../../interfaces'
+import { removeItemFromCart } from '../../redux/actions'
 import '../css/cart.css'
 import ProductsCard from '../utils/ProductsCard'
 
@@ -8,16 +9,24 @@ import ProductsCard from '../utils/ProductsCard'
 const Cart: React.FC = () => {
 
     const cart = useSelector((state: IState) => state.cart)
+    const dispatch = useDispatch()
+
+    console.log(cart);
+
+    const deleteFromCart = (product: Product): void => {
+        dispatch(removeItemFromCart(product))
+    }
+
 
     return (
         <div className='cart-container'>
             {
-                cart.length>0 &&
+                cart.length > 0 &&
                 cart.map(
-                    (product: Product) => <ProductsCard product={product} />
+                    (product: Product) =>
+                        <ProductsCard product={product} key={product.id} deleteFromCart={deleteFromCart} />
                 )
             }
-
         </div>
     )
 }

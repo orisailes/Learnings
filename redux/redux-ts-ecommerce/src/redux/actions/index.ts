@@ -1,4 +1,4 @@
-import { GET_PRODUCTS, SET_CART_ITEM, Product, actionType } from '../../interfaces'
+import { GET_PRODUCTS, SET_CART_ITEM,REMOVE_FROM_CART , Product, actionType } from '../../interfaces'
 import { Dispatch } from 'redux'
 import axios from 'axios';
 
@@ -28,6 +28,15 @@ export const addItemToCart = (product: Product) => {
     return {
         type: SET_CART_ITEM,
         payload: product
+    }
+
+}
+
+export const removeItemFromCart = (product:Product) => {
+    
+    return{
+        type: REMOVE_FROM_CART,
+        payload:product
     }
 
 }
