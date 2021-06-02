@@ -11,13 +11,11 @@ export type Product = {
     image: string
 }
 
-type Payload =  // fix needed
-|any 
-|Product[]
+
 
 export type actionType = {
     type: string,
-    payload:Payload // Product[] | Productis invalid 
+    payload:Product | Product[]
 }
 
 export interface IState {

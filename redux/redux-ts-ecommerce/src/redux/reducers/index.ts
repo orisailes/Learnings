@@ -18,7 +18,10 @@ const cartReducer = (state = [], action: actionType) => {
         case SET_CART_ITEM:
             return [...state, action.payload]
         case REMOVE_FROM_CART:
-            return state.filter((prod: Product) => prod.id !== action.payload.id)
+            if('id' in action.payload){
+                return state.filter((prod: Product) => prod.id !== (action.payload as Product).id )
+            }
+            return state
         default:
             return state
     }
@@ -28,4 +31,3 @@ export default combineReducers({
     products: productsReducer,
     cart: cartReducer
 })
-
