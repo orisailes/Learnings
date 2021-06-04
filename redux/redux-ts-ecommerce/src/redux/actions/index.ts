@@ -1,4 +1,4 @@
-import { GET_PRODUCTS, SET_CART_ITEM,REMOVE_FROM_CART , Product, actionType } from '../../interfaces'
+import { GET_PRODUCTS, SET_CART_ITEM,REMOVE_FROM_CART , Product, IAction } from '../../interfaces'
 import { Dispatch } from 'redux'
 import axios from 'axios';
 
@@ -9,7 +9,7 @@ export const getInitialProducts = () => {
     return async (dispatch: Dispatch) => {
         let data
         let productsArray: Product[]
-        let action: actionType
+        let action: IAction['productReducer']
         try {
             data = await axios.get('https://fakestoreapi.com/products')
             console.log('data: ', data);

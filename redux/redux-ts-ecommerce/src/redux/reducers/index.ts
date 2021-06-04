@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import { GET_PRODUCTS, actionType, SET_CART_ITEM, REMOVE_FROM_CART, Product } from '../../interfaces'
+import { GET_PRODUCTS, SET_CART_ITEM, REMOVE_FROM_CART, Product, IAction } from '../../interfaces'
 
 
-const productsReducer = (state = [], action: actionType) => {
+const productsReducer = (state = [], action: IAction['productReducer']) => {
 
     switch (action.type) {
 
@@ -13,13 +13,13 @@ const productsReducer = (state = [], action: actionType) => {
     }
 }
 
-const cartReducer = (state = [], action: actionType) => {
+const cartReducer = (state = [], action: IAction['cartReducer']) => {
     switch (action.type) {
         case SET_CART_ITEM:
             return [...state, action.payload]
         case REMOVE_FROM_CART:
             if('id' in action.payload){
-                return state.filter((prod: Product) => prod.id !== (action.payload as Product).id )
+                return state.filter((prod: Product) => prod.id !== action.payload.id )
             }
             return state
         default:

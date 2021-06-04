@@ -13,9 +13,15 @@ export type Product = {
 
 
 
-export type actionType = {
-    type: string,
-    payload:Product | Product[]
+export interface IAction {
+    productReducer: {
+        type: string,
+        payload: Product[]
+    }
+    cartReducer: {
+        type: string,
+        payload: Product
+    }
 }
 
 export interface IState {

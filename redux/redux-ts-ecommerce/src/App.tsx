@@ -5,6 +5,7 @@ import Cart from './components/pages/Cart';
 import Navbar from './components/utils/Navbar';
 import './components/css/normalize.css'
 import './components/css/app.css'
+
 function App() {
   return (
     <div className="App">
