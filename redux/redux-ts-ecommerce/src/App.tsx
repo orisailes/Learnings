@@ -3,7 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Products from './components/pages/Products';
 import Cart from './components/pages/Cart';
 import Navbar from './components/utils/Navbar';
-import './components/css/normalize.css'
+import './components/scss/normalize.css'
 import './components/scss/app.css'
 
 function App() {

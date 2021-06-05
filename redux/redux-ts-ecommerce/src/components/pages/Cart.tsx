@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { IState, Product } from '../../interfaces'
 import { removeItemFromCart } from '../../redux/actions'
-import '../css/cart.css'
+import '../scss/cart.css'
 import ProductsCard from '../utils/ProductsCard'
 
 

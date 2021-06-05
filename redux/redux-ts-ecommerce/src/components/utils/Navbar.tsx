@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import '../css/navbar.css'
+import '../scss/navbar.css'
 
 const Navbar:React.FC = ():JSX.Element => {
     return (

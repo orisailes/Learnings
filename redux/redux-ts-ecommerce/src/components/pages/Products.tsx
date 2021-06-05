@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { addItemToCart, getInitialProducts } from '../../redux/actions'
-import '../css/products.css'
+import '../scss/products.css'
 import { IState, Product } from '../../interfaces'
 import ProductsCard from '../utils/ProductsCard'
 

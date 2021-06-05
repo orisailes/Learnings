@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Product } from '../../interfaces'
-import '../css/product-card.css'
+import '../scss/product-card.css'
 
 interface Props {
     product: Product
