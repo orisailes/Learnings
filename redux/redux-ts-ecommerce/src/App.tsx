@@ -4,7 +4,7 @@ import Products from './components/pages/Products';
 import Cart from './components/pages/Cart';
 import Navbar from './components/utils/Navbar';
 import './components/css/normalize.css'
-import './components/css/app.css'
+import './components/scss/app.css'
 
 function App() {
   return (

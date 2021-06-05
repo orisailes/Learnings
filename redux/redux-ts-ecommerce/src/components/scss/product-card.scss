@@ -1,0 +1,26 @@
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    flex-direction: $direction;
+}
+
+.product-card {
+    @include flexCenter(column);
+    width: 25vw;
+    height: 60vh;
+    overflow-y: auto;
+    text-align: center;
+
+    img {
+        height: 15vh;
+    }
+}
+
+.read-more-btn {
+    background: none;
+    border: none;
+    outline: none;
+    color: blue;
+    cursor: pointer;
+}
