@@ -8,7 +8,7 @@ let c = {
     d: 'hello'
 }
 
-console.log(c.d);
+// console.log(c.d);
 
 
 let e = {
@@ -25,7 +25,7 @@ let g: {
     'h': 'cool'
 }
 
-console.log(g.h);
+// console.log(g.h);
 
 
 let tuple: [number, string] = [12, 'sd'] // explicitly declare length
@@ -69,3 +69,33 @@ readOnly.slice(2) // can do
 //* unknown is not a number
 
 //page 60
+
+const myArr = [
+    { name: 'hello', age: 20 },
+    { name: 'hellox', age: 12 },
+    { name: 'helloxs', age: 24 },
+]
+
+const mySecondArr = [
+    { name: 'hello', age: 240, nested: [1, 2, 'string'] },
+    { name: 'hellox', age: 122, data: { balagan: true } },
+    { name: 'helloxs', age: 245, hasPropetry: true },
+]
+
+const myStrings = [
+    { name: 'hello', age: '240', nested: [1, 2, 'string'] },
+    { name: 'hellox', age: '122', data: { balagan: true } },
+    { name: 'helloxs', age: '245', hasPropetry: true },
+]
+function sortYoungest<T extends {age:any}>(items: T[]) {
+
+    return items.sort((a, b) => a.age - b.age)[0]
+
+}
+
+const v = sortYoungest(myArr)
+console.log('v:', v)
+const v2 = sortYoungest(mySecondArr)
+console.log('v2:', v2)
+const v3 = sortYoungest(myStrings)
+console.log('v3:', v3)

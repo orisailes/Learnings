@@ -19,7 +19,7 @@ const cartReducer = (state = [], action: IAction['cartReducer']) => {
             return [...state, action.payload]
         case REMOVE_FROM_CART:
             if('id' in action.payload){
-                return state.filter((prod: Product) => prod.id !== action.payload.id )
+                return state.filter((prod: Product):boolean => prod.id !== action.payload.id )
             }
             return state
         default:

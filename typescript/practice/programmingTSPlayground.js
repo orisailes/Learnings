@@ -6,7 +6,7 @@ var a = {
 var c = {
     d: 'hello'
 };
-console.log(c.d);
+// console.log(c.d);
 var e = {
     f: 10,
 };
@@ -15,7 +15,7 @@ var e = {
 var g = {
     'h': 'cool'
 };
-console.log(g.h);
+// console.log(g.h);
 var tuple = [12, 'sd']; // explicitly declare length
 var tupleMinimum = [1, 2, 3]; // minimum 1 number MUST 
 var readOnly = [true, false, 'hello']; // cant modifiy it
@@ -50,3 +50,27 @@ readOnly.slice(2); // can do
 // let m = l * 2 // Error TS2571: Object is of type 'unknown'.
 //* unknown is not a number
 //page 60
+var myArr = [
+    { name: 'hello', age: 20 },
+    { name: 'hellox', age: 12 },
+    { name: 'helloxs', age: 24 },
+];
+var mySecondArr = [
+    { name: 'hello', age: 240, nested: [1, 2, 'string'] },
+    { name: 'hellox', age: 122, data: { balagan: true } },
+    { name: 'helloxs', age: 245, hasPropetry: true },
+];
+var myStrings = [
+    { name: 'hello', age: '240', nested: [1, 2, 'string'] },
+    { name: 'hellox', age: '122', data: { balagan: true } },
+    { name: 'helloxs', age: '245', hasPropetry: true },
+];
+function sortYoungest(items) {
+    return items.sort(function (a, b) { return a.age - b.age; })[0];
+}
+var v = sortYoungest(myArr);
+console.log('v:', v);
+var v2 = sortYoungest(mySecondArr);
+console.log('v2:', v2);
+var v3 = sortYoungest(myStrings);
+console.log('v3:', v3);
