@@ -30,11 +30,13 @@ const Products: React.FC = ():JSX.Element => {
 
     return (
         <div className='products-page'>
-            {isLoading && <h3>Loading...</h3>}
+            {isLoading && <h3 data-testid='loading'>Loading...</h3>}
             {
                 products.length > 0 &&
 
-                <div className='products-card-container'>
+                <div 
+                
+                className='products-card-container'>
                     {
                         products.map(
                             (product: Product) => <ProductsCard product={product} key={product.id} addToCart={addToCart} />
