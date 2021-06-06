@@ -6,6 +6,7 @@ import Navbar from './components/utils/Navbar';
 import './components/scss/normalize.css'
 import './components/scss/app.css'
 
+
 function App() {
   return (
     <div className="App">

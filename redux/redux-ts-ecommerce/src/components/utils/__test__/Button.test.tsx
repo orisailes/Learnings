@@ -1,30 +1,46 @@
+import '@testing-library/jest-dom/extend-expect'
 import React from 'react'
-import ReactDOM from 'react-dom'
 import Button from '../Button'
+import { fireEvent } from '@testing-library/dom';
+import { cleanup, render } from '@testing-library/react'
+import renderer from 'react-test-renderer'
 
-//fire event
 
 describe('test button component', () => {
 
-    let container:HTMLDivElement;
+    afterEach(cleanup)
+    let counter = 0
+    const functionToTest = () => {
+        counter += 1
+    }
 
-    beforeEach(() => {
-        container = document.createElement('div')
-        document.body.appendChild(container)
-        ReactDOM.render(<Button text="my button" />, container)
-    })
-
-    afterEach(()=>{
-        document.body.removeChild(container)
-        container.remove()
-    })
 
     it('render "Button" without crashing', () => {
-        const btn = container.querySelectorAll('button')
-        expect(btn).toHaveLength(1) // test if only one button render
-        const myBtn = btn[0] // select the button component
-        expect(myBtn.className).toBe('btn') // check class name
-        expect(myBtn.innerHTML).toBe('my button') // check text
-        
+        const { getByTestId } = render(<Button text="my button"></Button>) // using "render"
+        const btn = getByTestId('button')
+        expect(btn).toBeInTheDocument() // test if only one button render
+    })
+
+    it('test class name and inner html using queryselector', () => {
+        const { getByTestId } = render(<Button text="my button"></Button>) // using "render"
+        const btn = getByTestId('button')
+        expect(btn).toHaveClass('btn') // check class name
+        expect(btn).toHaveTextContent('my button') // check text
+
+    })
+
+    it('test "Button" component with use data-testid attribute', () => {
+        const { getByTestId } = render(<Button text="my button"></Button>) // using "render"
+        const btn = getByTestId('button')
+        expect(btn).toBeInTheDocument()
+    })
+
+    it('test button clicked', () => {
+        const { getByTestId } = render(<Button text="my 2nd button" onClick={functionToTest}></Button>) // using "render"
+        const btn = getByTestId('button');
+        fireEvent.click(btn)
+        expect(counter).toBe(1)
+        fireEvent.click(btn)
+        expect(counter).toBe(2)
     })
 })
