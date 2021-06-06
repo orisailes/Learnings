@@ -4,7 +4,7 @@ import { IState, Product } from '../../interfaces'
 import { removeItemFromCart } from '../../redux/actions'
 import '../scss/cart.css'
 import ProductsCard from '../utils/ProductsCard'
-
+import Button from '../utils/Button'
 
 const Cart: React.FC = () => {
 

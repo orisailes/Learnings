@@ -1,0 +1,10 @@
+.btn{
+    border:none;
+    outline:none;
+    border-radius: 20px;
+    background: yellowgreen;
+    opacity: 0.9;
+    &:hover{
+        opacity: 1;
+    }
+}
