@@ -1,12 +1,12 @@
 import React from 'react'
 import '../scss/button.css'
 interface Props {
-    text: string
-    className: string
-    onClick: () => void
+    text?: string
+    className?: string
+    onClick?: () => void
 }
 
-const Button = ({ text, className="btn", onClick }: Props) => {
+const Button = ({ text, className="btn", onClick }: Props):JSX.Element => {
     return (
         <button
             className={className}
