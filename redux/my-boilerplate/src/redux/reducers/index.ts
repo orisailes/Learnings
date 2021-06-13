@@ -6,21 +6,21 @@ import {combineReducers} from 'redux'
 
 // }
 
-// const myReducer =  (state = initialState, { type, payload }) => {
-//     switch (type) {
+// const myReducer =  (state = initialState, action) => {
+//     switch (action.type) {
 
 //     case typeName:
-//         return { ...state, ...payload }
+//         return [...state,action.payload]
 
 //     default:
 //         return state
 //     }
 // }
-// const mySecondReducer =  (state = initialState, { type, payload }) => {
-//     switch (type) {
+// const mySecondReducer =  (state = initialState, action) => {
+//     switch (action.type) {
 
 //     case typeName:
-//         return { ...state, ...payload }
+//         return [...state,action.payload]
 
 //     default:
 //         return state
